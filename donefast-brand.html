@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DoneFast — Brand Guidelines</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2308080a'/><text x='50' y='68' font-size='55' font-family='serif' font-style='italic' fill='%23c8ff2e' text-anchor='middle'>df</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #08080a;
+      --surface: #121215;
+      --surface-2: #1a1a1f;
+      --surface-3: #222228;
+      --white: #f4f1ec;
+      --white-dim: #b8b4ad;
+      --white-muted: #7a776f;
+      --lime: #c8ff2e;
+      --lime-dim: rgba(200, 255, 46, 0.12);
+      --lime-glow: rgba(200, 255, 46, 0.06);
+      --red: #ff4040;
+      --border: rgba(244, 241, 236, 0.06);
+      --border-hover: rgba(244, 241, 236, 0.12);
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-sans: 'Outfit', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--lime); color: var(--black); }
+    a { color: inherit; text-decoration: none; }
+
+    /* Noise overlay */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 9999;
+      pointer-events: none; opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px clamp(24px, 5vw, 64px);
+      background: rgba(8, 8, 10, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-size: 22px; font-style: italic; letter-spacing: -0.01em;
+    }
+    .nav-logo b { font-weight: 400; color: var(--white); }
+    .nav-logo i { color: var(--lime); font-style: italic; }
+    .nav-label {
+      font-family: var(--font-mono);
+      font-size: 11px; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--white-muted);
+      border: 1px solid var(--border-hover); border-radius: 100px;
+      padding: 5px 14px;
+    }
+
+    /* LAYOUT */
+    .page { max-width: 1100px; margin: 0 auto; padding: 120px clamp(24px, 5vw, 64px) 80px; }
+
+    /* HERO TITLE */
+    .brand-hero {
+      padding: 80px 0 72px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 80px;
+    }
+    .brand-hero-top {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 40px; flex-wrap: wrap; margin-bottom: 48px;
+    }
+    .brand-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 400; line-height: 1.0; letter-spacing: -0.02em;
+      max-width: 600px;
+    }
+    .brand-hero h1 em { font-style: italic; color: var(--lime); }
+    .brand-hero-meta {
+      display: flex; flex-direction: column; gap: 6px;
+      padding-top: 8px; text-align: right;
+    }
+    .meta-line { font-size: 13px; color: var(--white-muted); }
+    .meta-line strong { color: var(--white-dim); font-weight: 600; }
+    .brand-tagline {
+      font-size: clamp(1rem, 1.4vw, 1.15rem);
+      color: var(--white-muted); max-width: 520px; line-height: 1.7;
+    }
+
+    /* SECTION HEADERS */
+    .section { margin-bottom: 80px; }
+    .section-label {
+      display: inline-block; padding: 5px 14px;
+      border: 1px solid var(--border-hover); border-radius: 100px;
+      font-family: var(--font-mono);
+      font-size: 11px; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--white-muted);
+      margin-bottom: 20px;
+    }
+    .section h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 400; letter-spacing: -0.02em; line-height: 1.08;
+      margin-bottom: 40px;
+    }
+    .section h2 em { font-style: italic; color: var(--lime); }
+
+    /* CARDS / SURFACES */
+    .surface-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+    }
+    .surface-card-2 {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    /* LOGO SECTION */
+    .logo-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2px; margin-bottom: 16px;
+      background: var(--border); border-radius: 20px; overflow: hidden;
+    }
+    .logo-cell {
+      padding: 48px 40px;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 16px;
+    }
+    .logo-cell.on-dark { background: var(--black); }
+    .logo-cell.on-surface { background: var(--surface-2); }
+    .logo-cell.on-lime { background: var(--lime); }
+    .logo-cell-label {
+      font-family: var(--font-mono);
+      font-size: 11px; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .logo-cell.on-dark .logo-cell-label,
+    .logo-cell.on-surface .logo-cell-label { color: var(--white-muted); }
+    .logo-cell.on-lime .logo-cell-label { color: rgba(8,8,10,0.5); }
+
+    .logo-lockup {
+      font-family: var(--font-serif);
+      font-size: 28px; font-style: italic; letter-spacing: -0.01em;
+    }
+    .logo-lockup b { font-weight: 400; }
+    .logo-lockup.on-dark b, .logo-lockup.on-surface b { color: var(--white); }
+    .logo-lockup.on-dark i { color: var(--lime); }
+    .logo-lockup.on-surface i { color: var(--lime); }
+    .logo-lockup.on-lime b, .logo-lockup.on-lime i { color: var(--black); font-style: italic; }
+
+    /* COLOUR SECTION */
+    .color-row { display: flex; gap: 2px; flex-wrap: wrap; margin-bottom: 2px; background: var(--border); border-radius: 16px; overflow: hidden; }
+    .swatch { flex: 1; min-width: 120px; }
+    .swatch-color { height: 100px; }
+    .swatch-info { padding: 14px 16px; background: var(--surface); }
+    .swatch-name { font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 2px; }
+    .swatch-hex { font-size: 12px; color: var(--white-muted); font-family: var(--font-mono); }
+    .swatch-role { font-size: 11px; color: var(--white-muted); margin-top: 4px; opacity: 0.7; }
+
+    /* TYPOGRAPHY */
+    .type-block {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 36px 40px; margin-bottom: 2px;
+    }
+    .type-specimen { margin-bottom: 16px; }
+    .type-meta { display: flex; gap: 24px; flex-wrap: wrap; }
+    .type-meta-label { font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white-muted); margin-bottom: 3px; }
+    .type-meta-value { font-size: 13px; color: var(--white-muted); font-family: var(--font-mono); }
+
+    .type-pair-demo {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 48px 40px; margin-bottom: 12px;
+    }
+    .type-pair-demo h3 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      font-weight: 400; line-height: 1.0; letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .type-pair-demo h3 em { font-style: italic; color: var(--lime); }
+    .type-pair-demo p { font-size: 15px; color: var(--white-muted); line-height: 1.72; max-width: 480px; }
+
+    /* VOICE */
+    .voice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); border-radius: 16px; overflow: hidden; }
+    .voice-card { padding: 32px 28px; }
+    .voice-card.do { background: rgba(200, 255, 46, 0.06); }
+    .voice-card.dont { background: rgba(255, 64, 64, 0.05); }
+    .voice-badge {
+      font-family: var(--font-mono);
+      font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+      margin-bottom: 16px; display: flex; align-items: center; gap: 6px;
+    }
+    .voice-badge.do-badge { color: var(--lime); }
+    .voice-badge.dont-badge { color: var(--red); }
+    .voice-dot { width: 6px; height: 6px; border-radius: 50%; }
+    .voice-dot.lime { background: var(--lime); }
+    .voice-dot.red { background: var(--red); }
+    .voice-items { display: flex; flex-direction: column; gap: 10px; }
+    .voice-item { font-size: 13px; line-height: 1.55; color: var(--white-dim); padding-left: 12px; }
+    .voice-card.do .voice-item { border-left: 2px solid rgba(200, 255, 46, 0.3); }
+    .voice-card.dont .voice-item { border-left: 2px solid rgba(255, 64, 64, 0.2); }
+
+    /* MOTION */
+    .motion-demo {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 40px; display: flex; gap: 40px; flex-wrap: wrap;
+      align-items: center; justify-content: space-between;
+    }
+    .motion-box {
+      width: 64px; height: 64px;
+      background: var(--lime-dim); border: 1px solid rgba(200, 255, 46, 0.2);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+    }
+    .motion-box:hover { transform: translateY(-8px) scale(1.06); box-shadow: 0 20px 40px rgba(200, 255, 46, 0.12); }
+    .motion-box svg { width: 28px; height: 28px; color: var(--lime); }
+    .motion-info { flex: 1; min-width: 200px; }
+    .motion-info h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .motion-info p { font-size: 13px; color: var(--white-muted); line-height: 1.6; }
+    .motion-spec {
+      display: inline-block; font-size: 12px; font-family: var(--font-mono);
+      background: var(--lime-dim); color: var(--lime);
+      padding: 3px 10px; border-radius: 6px; margin-top: 8px;
+    }
+
+    /* MICRO INTERACTION ROWS */
+    .micro-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 14px; background: var(--surface-2); border-radius: 10px;
+    }
+    .micro-row span { font-size: 13px; font-weight: 500; }
+    .micro-row code { font-size: 12px; color: var(--white-muted); font-family: var(--font-mono); }
+
+    /* BUTTON SHOWCASE */
+    .button-row {
+      display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
+      padding: 40px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+    }
+    .btn-primary-demo {
+      background: var(--lime); color: var(--black);
+      padding: 14px 28px; border-radius: 100px;
+      font-size: 14px; font-weight: 600; display: inline-flex; gap: 6px; align-items: center;
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer; border: none; font-family: var(--font-sans);
+    }
+    .btn-primary-demo:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(200, 255, 46, 0.25); }
+    .btn-ghost-demo {
+      color: var(--white-muted); font-size: 14px; font-weight: 500;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: color 0.25s, gap 0.25s; background: none; border: none; font-family: var(--font-sans); cursor: pointer;
+    }
+    .btn-ghost-demo:hover { color: var(--white); gap: 10px; }
+    .btn-outline-demo {
+      background: transparent; color: var(--white);
+      border: 1px solid var(--border-hover); padding: 13px 27px; border-radius: 100px;
+      font-size: 14px; font-weight: 600;
+      display: inline-block; transition: all 0.25s; cursor: pointer; font-family: var(--font-sans);
+    }
+    .btn-outline-demo:hover { border-color: var(--white-muted); background: rgba(244, 241, 236, 0.04); }
+
+    /* STATUS CHIPS */
+    .status-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .status-chip { padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; animation: blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .chip-lime { background: var(--lime-dim); color: var(--lime); }
+    .chip-amber { background: rgba(212, 132, 90, 0.12); color: #D4845A; }
+    .chip-neutral { background: var(--surface-3); color: var(--white-muted); }
+
+    /* PILL */
+    .pill-demo {
+      display: inline-block; padding: 5px 14px;
+      border: 1px solid var(--border-hover); border-radius: 100px;
+      font-family: var(--font-mono);
+      font-size: 11px; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--white-muted);
+    }
+
+    /* DIVIDER */
+    .rule { border: none; border-top: 1px solid var(--border); margin: 0 0 80px; }
+
+    /* SPACING */
+    .spacing-row { display: flex; flex-direction: column; gap: 8px; }
+    .spacing-item { display: flex; align-items: center; gap: 20px; }
+    .spacing-bar-wrap { flex: 1; }
+    .spacing-bar { height: 6px; background: var(--lime); border-radius: 4px; opacity: 0.7; }
+    .spacing-label { font-size: 13px; font-family: var(--font-mono); color: var(--white-muted); min-width: 60px; }
+    .spacing-px { font-size: 12px; color: var(--white-muted); min-width: 36px; text-align: right; font-family: var(--font-mono); }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+      .logo-grid { grid-template-columns: 1fr; }
+      .voice-grid { grid-template-columns: 1fr; }
+      .brand-hero-top { flex-direction: column; }
+      .brand-hero-meta { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><b>Done</b><i>Fast</i></a>
+  <span class="nav-label">Brand Guidelines</span>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="brand-hero">
+    <div class="brand-hero-top">
+      <h1>Brand <em>Guidelines.</em></h1>
+      <div class="brand-hero-meta">
+        <div class="meta-line"><strong>Version</strong> 1.0</div>
+        <div class="meta-line"><strong>Updated</strong> 2025</div>
+      </div>
+    </div>
+    <p class="brand-tagline">DoneFast is built on one promise: that the work gets done, and gets done fast. These guidelines exist so every touchpoint — from a cold email to a sales page — feels like the same brand.</p>
+  </div>
+
+  <!-- 01 LOGO -->
+  <div class="section">
+    <span class="section-label">01 — Logo</span>
+    <h2>The <em>mark.</em></h2>
+
+    <div class="logo-grid" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:16px;">
+      <div class="logo-cell on-dark">
+        <div class="logo-lockup on-dark"><b>Done</b><i>Fast</i></div>
+        <span class="logo-cell-label">Primary — on black</span>
+      </div>
+      <div class="logo-cell on-surface">
+        <div class="logo-lockup on-surface"><b>Done</b><i>Fast</i></div>
+        <span class="logo-cell-label">On surface</span>
+      </div>
+      <div class="logo-cell on-lime">
+        <div class="logo-lockup on-lime"><b>Done</b><i>Fast</i></div>
+        <span class="logo-cell-label">On lime</span>
+      </div>
+    </div>
+
+    <div class="surface-card" style="padding:40px;margin-bottom:16px;">
+      <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--white-muted);margin-bottom:28px;">Logo scale</div>
+      <div style="display:flex;align-items:flex-end;gap:32px;flex-wrap:wrap;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+          <span style="font-family:var(--font-serif);font-size:14px;font-style:italic;"><b style="font-weight:400;">Done</b><i style="color:var(--lime);">Fast</i></span>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--white-muted);">14px</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+          <span style="font-family:var(--font-serif);font-size:20px;font-style:italic;"><b style="font-weight:400;">Done</b><i style="color:var(--lime);">Fast</i></span>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--white-muted);">20px</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+          <span style="font-family:var(--font-serif);font-size:28px;font-style:italic;"><b style="font-weight:400;">Done</b><i style="color:var(--lime);">Fast</i></span>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--white-muted);">28px (nav default)</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+          <span style="font-family:var(--font-serif);font-size:48px;font-style:italic;"><b style="font-weight:400;">Done</b><i style="color:var(--lime);">Fast</i></span>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--white-muted);">48px</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="surface-card-2" style="padding:24px 28px;">
+      <div style="font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--lime);margin-bottom:10px;">Clearspace rule</div>
+      <p style="font-size:13px;color:var(--white-muted);line-height:1.65;">Always maintain a minimum clearspace equal to the cap-height of the <em>"D"</em> on all four sides. Never crowd or alter the weight or colour of either word. "Done" is always roman, "Fast" is always italic lime.</p>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- 02 COLOUR -->
+  <div class="section">
+    <span class="section-label">02 — Colour</span>
+    <h2>The <em>palette.</em></h2>
+
+    <div class="color-row" style="margin-bottom:2px;">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#08080a;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Black</div>
+          <div class="swatch-hex">#08080a</div>
+          <div class="swatch-role">Primary background</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#121215;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Surface</div>
+          <div class="swatch-hex">#121215</div>
+          <div class="swatch-role">Cards, panels</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1a1a1f;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Surface 2</div>
+          <div class="swatch-hex">#1a1a1f</div>
+          <div class="swatch-role">Hover states, nested cards</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#222228;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Surface 3</div>
+          <div class="swatch-hex">#222228</div>
+          <div class="swatch-role">Inputs, chips</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-row" style="margin-bottom:16px;">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#c8ff2e;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Lime</div>
+          <div class="swatch-hex">#c8ff2e</div>
+          <div class="swatch-role">Primary accent, CTAs, logo "Fast"</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#f4f1ec;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">White</div>
+          <div class="swatch-hex">#f4f1ec</div>
+          <div class="swatch-role">Headlines, primary text</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#b8b4ad;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">White Dim</div>
+          <div class="swatch-hex">#b8b4ad</div>
+          <div class="swatch-role">Secondary text</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#7a776f;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">White Muted</div>
+          <div class="swatch-hex">#7a776f</div>
+          <div class="swatch-role">Captions, labels, placeholders</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="surface-card" style="padding:28px 32px;">
+      <div style="font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--white-muted);margin-bottom:16px;">Colour rules</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div style="font-size:13px;color:var(--white-muted);line-height:1.6;padding-left:14px;border-left:2px solid rgba(200,255,46,0.3);">Lime is the only accent colour. It's used for the logo wordmark, primary CTAs, interactive highlights, and status indicators. Use it sparingly — it only hits hard when surrounded by dark.</div>
+        <div style="font-size:13px;color:var(--white-muted);line-height:1.6;padding-left:14px;border-left:2px solid rgba(200,255,46,0.3);">The black background is non-negotiable. It's what makes the lime pop and gives the brand its premium, technical edge. Never swap it for grey or navy.</div>
+        <div style="font-size:13px;color:var(--white-muted);line-height:1.6;padding-left:14px;border-left:2px solid rgba(255,64,64,0.25);">Never use lime as a background for large sections. It works on CTAs and small highlights only. Over-use kills the contrast that makes it work.</div>
+        <div style="font-size:13px;color:var(--white-muted);line-height:1.6;padding-left:14px;border-left:2px solid rgba(255,64,64,0.25);">Don't add new colours. If a design problem needs a colour not in this palette, solve it with opacity or surface layering instead.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- 03 TYPOGRAPHY -->
+  <div class="section">
+    <span class="section-label">03 — Typography</span>
+    <h2>The <em>typeface.</em></h2>
+
+    <div class="type-pair-demo" style="margin-bottom:12px;">
+      <h3>Your entire business, <em>automated.</em></h3>
+      <p>The primary type system. Instrument Serif carries the brand voice — editorial, confident, authoritative. Outfit handles all UI and body copy. JetBrains Mono is reserved strictly for technical labels, code, and metadata.</p>
+    </div>
+
+    <div class="type-block" style="margin-bottom:2px;">
+      <div class="type-specimen">
+        <div style="font-family:var(--font-serif);font-weight:400;font-size:36px;line-height:1.0;letter-spacing:-0.02em;margin-bottom:6px;">Instrument Serif — Display</div>
+        <div style="font-size:15px;color:var(--white-muted);line-height:1.7;">Headlines, section titles, the "Fast" wordmark. Always paired with Outfit for body copy. Italic is the accent cut — used for 1–3 emotional words per headline.</div>
+      </div>
+      <div class="type-meta">
+        <div><div class="type-meta-label">Weights</div><div class="type-meta-value">400, 400 Italic</div></div>
+        <div><div class="type-meta-label">Headlines</div><div class="type-meta-value">clamp(3rem, 5.6vw, 5.6rem)</div></div>
+        <div><div class="type-meta-label">Tracking</div><div class="type-meta-value">-0.02em on display</div></div>
+        <div><div class="type-meta-label">Italic rule</div><div class="type-meta-value">1–3 words max, colour: lime</div></div>
+      </div>
+    </div>
+
+    <div class="type-block" style="margin-bottom:2px;">
+      <div class="type-specimen">
+        <div style="font-family:var(--font-sans);font-weight:600;font-size:28px;letter-spacing:-0.01em;margin-bottom:6px;">Outfit — UI & Body</div>
+        <div style="font-size:15px;color:var(--white-muted);line-height:1.7;">All paragraph copy, navigation, buttons, card descriptions, FAQ answers. Clean, geometric, highly legible at all sizes.</div>
+      </div>
+      <div class="type-meta">
+        <div><div class="type-meta-label">Weights</div><div class="type-meta-value">300, 400, 500, 600, 700</div></div>
+        <div><div class="type-meta-label">Body</div><div class="type-meta-value">14–16px / 1.68 line-height</div></div>
+        <div><div class="type-meta-label">UI labels</div><div class="type-meta-value">12–14px / weight 500–600</div></div>
+      </div>
+    </div>
+
+    <div class="type-block" style="margin-bottom:16px;">
+      <div class="type-specimen">
+        <div style="font-family:var(--font-mono);font-weight:500;font-size:22px;letter-spacing:0.01em;margin-bottom:6px;color:var(--lime);">JetBrains Mono — Technical</div>
+        <div style="font-size:15px;color:var(--white-muted);line-height:1.7;">Section pill labels, code snippets, pricing periods, metadata, spec callouts. Never used for body copy or headlines.</div>
+      </div>
+      <div class="type-meta">
+        <div><div class="type-meta-label">Weights</div><div class="type-meta-value">400, 500, 700</div></div>
+        <div><div class="type-meta-label">Usage</div><div class="type-meta-value">Labels, code, metadata only</div></div>
+        <div><div class="type-meta-label">Size</div><div class="type-meta-value">10–13px, tracking 0.05–0.1em</div></div>
+      </div>
+    </div>
+
+    <!-- Type scale -->
+    <div class="surface-card" style="overflow:hidden;">
+      <div style="padding:28px 32px 0;">
+        <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--white-muted);margin-bottom:24px;">Type scale</div>
+      </div>
+      <div style="padding:0 32px 28px;display:flex;flex-direction:column;gap:24px;">
+        <div style="border-bottom:1px solid var(--border);padding-bottom:24px;">
+          <div style="font-family:var(--font-serif);font-size:clamp(2.8rem,5vw,4.8rem);font-weight:400;letter-spacing:-0.02em;line-height:1.0;margin-bottom:4px;">Hero Display</div>
+          <div style="font-family:var(--font-mono);font-size:11px;color:var(--white-muted);">clamp(3rem, 5.6vw, 5.6rem) · Instrument Serif · tracking -0.02em</div>
+        </div>
+        <div style="border-bottom:1px solid var(--border);padding-bottom:24px;">
+          <div style="font-family:var(--font-serif);font-size:clamp(1.8rem,3.5vw,3.2rem);font-weight:400;letter-spacing:-0.02em;line-height:1.06;margin-bottom:4px;">Section Heading</div>
+          <div style="font-family:var(--font-mono);font-size:11px;color:var(--white-muted);">clamp(2.2rem, 4.2vw, 4.2rem) · Instrument Serif · tracking -0.02em</div>
+        </div>
+        <div style="border-bottom:1px solid var(--border);padding-bottom:24px;">
+          <div style="font-family:var(--font-sans);font-size:1.1rem;font-weight:400;line-height:1.65;color:var(--white-muted);margin-bottom:4px;">Subheading / intro copy — Outfit 400</div>
+          <div style="font-family:var(--font-mono);font-size:11px;color:var(--white-muted);">clamp(1rem, 1.4vw, 1.15rem) · Outfit · colour: white-muted</div>
+        </div>
+        <div style="border-bottom:1px solid var(--border);padding-bottom:24px;">
+          <div style="font-family:var(--font-sans);font-size:15px;font-weight:400;color:var(--white-muted);line-height:1.72;margin-bottom:4px;">Body copy — Outfit Regular. Used for all paragraph text, card descriptions, FAQ answers, and supporting information across every page.</div>
+          <div style="font-family:var(--font-mono);font-size:11px;color:var(--white-muted);">14–15px · Outfit 400 · line-height 1.68–1.78</div>
+        </div>
+        <div>
+          <div style="margin-bottom:8px;"><span class="pill-demo">Section label</span></div>
+          <div style="font-family:var(--font-mono);font-size:11px;color:var(--white-muted);">11px · JetBrains Mono 500 · tracking 0.08em · uppercase</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- 04 COMPONENTS -->
+  <div class="section">
+    <span class="section-label">04 — Components</span>
+    <h2>Buttons & <em>UI elements.</em></h2>
+
+    <div class="button-row" style="margin-bottom:12px;">
+      <button class="btn-primary-demo">Book a free call →</button>
+      <button class="btn-outline-demo">See pricing</button>
+      <button class="btn-ghost-demo">How it works ↓</button>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin-bottom:16px;background:var(--border);border-radius:16px;overflow:hidden;">
+      <div style="background:var(--surface);padding:20px 22px;">
+        <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--lime);margin-bottom:10px;">Primary CTA</div>
+        <div style="font-size:12px;color:var(--white-muted);line-height:1.6;font-family:var(--font-mono);">bg: #c8ff2e<br>text: #08080a<br>radius: 100px<br>padding: 14–18px 28–48px</div>
+      </div>
+      <div style="background:var(--surface);padding:20px 22px;">
+        <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--white-muted);margin-bottom:10px;">Outline</div>
+        <div style="font-size:12px;color:var(--white-muted);line-height:1.6;font-family:var(--font-mono);">bg: transparent<br>border: 1px border-hover<br>text: #f4f1ec<br>radius: 100px</div>
+      </div>
+      <div style="background:var(--surface);padding:20px 22px;">
+        <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--white-muted);margin-bottom:10px;">Ghost</div>
+        <div style="font-size:12px;color:var(--white-muted);line-height:1.6;font-family:var(--font-mono);">bg: none<br>text: white-muted<br>hover: color → white<br>arrow animates right</div>
+      </div>
+    </div>
+
+    <!-- Status chips -->
+    <div class="surface-card" style="padding:24px 28px;margin-bottom:12px;">
+      <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--white-muted);margin-bottom:16px;">Status chips</div>
+      <div class="status-row">
+        <div class="status-chip chip-lime"><span class="status-dot" style="background:var(--lime);"></span>Done</div>
+        <div class="status-chip chip-amber"><span style="width:6px;height:6px;border-radius:50%;background:#D4845A;display:inline-block;"></span>Building</div>
+        <div class="status-chip chip-neutral">Up next</div>
+        <div class="status-chip chip-neutral">Queued</div>
+      </div>
+    </div>
+
+    <!-- Pill labels -->
+    <div class="surface-card" style="padding:24px 28px;">
+      <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--white-muted);margin-bottom:16px;">Section pill labels</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <span class="pill-demo">Why DoneFast</span>
+        <span class="pill-demo">How it works</span>
+        <span class="pill-demo">Pricing</span>
+        <span class="pill-demo">FAQ</span>
+        <span class="pill-demo">Get started</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- 05 MOTION -->
+  <div class="section">
+    <span class="section-label">05 — Motion</span>
+    <h2>How things <em>move.</em></h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border-radius:20px;overflow:hidden;margin-bottom:12px;">
+      <div class="motion-demo" style="flex-direction:column;align-items:flex-start;gap:20px;border-radius:0;">
+        <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--white-muted);">Scroll reveal — hover the box →</div>
+        <div style="display:flex;align-items:center;gap:20px;width:100%;">
+          <div class="motion-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+          <div>
+            <div style="font-size:14px;font-weight:600;margin-bottom:4px;">Ease: Spring</div>
+            <div class="motion-spec">cubic-bezier(0.16, 1, 0.3, 1)</div><br>
+            <div class="motion-spec" style="margin-top:4px;">duration: 0.75s</div>
+          </div>
+        </div>
+        <div style="font-size:13px;color:var(--white-muted);line-height:1.6;">Used for: scroll reveals, card hovers, modal entrances. The spring easing gives everything a natural, physical feel — fast out, slow settle.</div>
+      </div>
+
+      <div class="motion-demo" style="flex-direction:column;align-items:flex-start;gap:20px;border-radius:0;">
+        <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--white-muted);">Micro interactions</div>
+        <div style="display:flex;flex-direction:column;gap:8px;width:100%;">
+          <div class="micro-row"><span>Button hover lift</span><code>translateY(-2px) · 0.3s</code></div>
+          <div class="micro-row"><span>Button hover glow</span><code>box-shadow lime · 0.3s</code></div>
+          <div class="micro-row"><span>Card hover lift</span><code>translateY(-4px) · 0.4s</code></div>
+          <div class="micro-row"><span>FAQ accordion</span><code>max-height · 0.5s spring</code></div>
+          <div class="micro-row"><span>Pulse dot (live status)</span><code>opacity+scale · 2.2s loop</code></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:rgba(255,64,64,0.06);border:1px solid rgba(255,64,64,0.15);border-radius:14px;padding:20px 24px;">
+      <div style="font-family:var(--font-mono);font-size:11px;font-weight:500;color:var(--red);letter-spacing:0.04em;margin-bottom:6px;">Motion rule — always respect prefers-reduced-motion</div>
+      <div style="font-size:13px;color:var(--white-muted);">All animations must be wrapped with a <code style="font-family:var(--font-mono);font-size:12px;background:var(--surface-2);padding:2px 8px;border-radius:4px;">@media (prefers-reduced-motion: reduce)</code> fallback that disables transitions. Accessibility is not optional.</div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- 06 VOICE -->
+  <div class="section">
+    <span class="section-label">06 — Voice & Tone</span>
+    <h2>How we <em>talk.</em></h2>
+
+    <div class="surface-card" style="padding:36px 40px;margin-bottom:12px;">
+      <div style="font-family:var(--font-serif);font-size:1.4rem;font-style:italic;line-height:1.5;margin-bottom:20px;color:var(--lime);">"We're the operator's operator. We don't sell software — we solve the problem and move on to the next one."</div>
+      <p style="font-size:14px;color:var(--white-muted);line-height:1.72;">DoneFast is a peer, not a vendor. We speak plainly, we move fast, and we let results do the bragging. The tone is direct and confident — never corporate, never breathless, never hype-y. We don't use jargon because the people we work with are too busy for it.</p>
+    </div>
+
+    <div class="voice-grid" style="margin-bottom:12px;">
+      <div class="voice-card do">
+        <div class="voice-badge do-badge"><span class="voice-dot lime"></span>Write like this</div>
+        <div class="voice-items">
+          <div class="voice-item">"We build it. You approve it. Done." — Short, declarative, active voice.</div>
+          <div class="voice-item">"Most automations ship in 1–3 days." — Specific, honest, no waffle.</div>
+          <div class="voice-item">"That's not an ops problem. That's a compounding revenue problem." — Reframe with authority.</div>
+          <div class="voice-item">"Submit as many requests as you want." — Generous, confident, no caveats up front.</div>
+          <div class="voice-item">"We'd rather earn your business every month than lock you in." — Trust-building without begging.</div>
+        </div>
+      </div>
+      <div class="voice-card dont">
+        <div class="voice-badge dont-badge"><span class="voice-dot red"></span>Not like this</div>
+        <div class="voice-items">
+          <div class="voice-item">"Leverage our cutting-edge AI-powered solution ecosystem." — Meaningless filler.</div>
+          <div class="voice-item">"We're passionate about helping agencies thrive!" — Hollow enthusiasm.</div>
+          <div class="voice-item">"Our best-in-class platform..." — Nobody believes this anymore.</div>
+          <div class="voice-item">"Please don't hesitate to reach out!" — Weak, desperate energy.</div>
+          <div class="voice-item">"We work with businesses of all sizes across many verticals." — Too broad, says nothing.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:var(--border);border-radius:14px;overflow:hidden;">
+      <div style="background:var(--surface);padding:20px 22px;">
+        <div style="font-size:12px;font-weight:600;margin-bottom:8px;">Confident</div>
+        <div style="font-size:13px;color:var(--white-muted);line-height:1.6;">We don't hedge. We state things plainly and back them with specifics. "7-day refund" not "we'll try to make it right."</div>
+      </div>
+      <div style="background:var(--surface);padding:20px 22px;">
+        <div style="font-size:12px;font-weight:600;margin-bottom:8px;">Specific</div>
+        <div style="font-size:13px;color:var(--white-muted);line-height:1.6;">Numbers over adjectives. "1–3 business days" beats "fast turnaround." "10–20 hours saved per week" beats "significant time savings."</div>
+      </div>
+      <div style="background:var(--surface);padding:20px 22px;">
+        <div style="font-size:12px;font-weight:600;margin-bottom:8px;">Human</div>
+        <div style="font-size:13px;color:var(--white-muted);line-height:1.6;">We write like a smart peer who respects the reader's time. Contractions are fine. Short sentences are better than long ones.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- 07 SPACING -->
+  <div class="section">
+    <span class="section-label">07 — Spacing</span>
+    <h2>Room to <em>breathe.</em></h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border-radius:20px;overflow:hidden;">
+      <div class="surface-card" style="border-radius:0;border:none;padding:32px;">
+        <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--white-muted);margin-bottom:24px;">Spacing scale</div>
+        <div class="spacing-row">
+          <div class="spacing-item"><span class="spacing-label">--xs</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:8px;"></div></div><span class="spacing-px">8px</span></div>
+          <div class="spacing-item"><span class="spacing-label">--sm</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:16px;"></div></div><span class="spacing-px">16px</span></div>
+          <div class="spacing-item"><span class="spacing-label">--md</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:32px;"></div></div><span class="spacing-px">32px</span></div>
+          <div class="spacing-item"><span class="spacing-label">--lg</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:64px;"></div></div><span class="spacing-px">64px</span></div>
+          <div class="spacing-item"><span class="spacing-label">--xl</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:120px;"></div></div><span class="spacing-px">120px</span></div>
+        </div>
+      </div>
+      <div class="surface-card" style="border-radius:0;border:none;padding:32px;">
+        <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--white-muted);margin-bottom:24px;">Border radius scale</div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="width:56px;height:28px;background:var(--lime-dim);border:1px solid rgba(200,255,46,0.2);border-radius:10px;flex-shrink:0;"></div>
+            <div><div style="font-size:13px;font-weight:600;font-family:var(--font-mono);">10px</div><div style="font-size:12px;color:var(--white-muted);">Small chips, inputs</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="width:56px;height:28px;background:var(--lime-dim);border:1px solid rgba(200,255,46,0.2);border-radius:14px;flex-shrink:0;"></div>
+            <div><div style="font-size:13px;font-weight:600;font-family:var(--font-mono);">14px</div><div style="font-size:12px;color:var(--white-muted);">Icon containers</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="width:56px;height:28px;background:var(--lime-dim);border:1px solid rgba(200,255,46,0.2);border-radius:16px;flex-shrink:0;"></div>
+            <div><div style="font-size:13px;font-weight:600;font-family:var(--font-mono);">16px</div><div style="font-size:12px;color:var(--white-muted);">Standard cards, grid items</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="width:56px;height:28px;background:var(--lime-dim);border:1px solid rgba(200,255,46,0.2);border-radius:20px;flex-shrink:0;"></div>
+            <div><div style="font-size:13px;font-weight:600;font-family:var(--font-mono);">20px</div><div style="font-size:12px;color:var(--white-muted);">Large panels, pricing cards</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="width:56px;height:28px;background:var(--lime-dim);border:1px solid rgba(200,255,46,0.2);border-radius:100px;flex-shrink:0;"></div>
+            <div><div style="font-size:13px;font-weight:600;font-family:var(--font-mono);">100px</div><div style="font-size:12px;color:var(--white-muted);">Buttons and labels only</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="border-top:1px solid var(--border);padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+    <a href="index.html" class="nav-logo"><b>Done</b><i>Fast</i></a>
+    <div style="font-family:var(--font-mono);font-size:12px;color:var(--white-muted);">Brand Guidelines v1.0 &mdash; 2025</div>
+  </div>
+
+</div>
+</body>
+</html>
