@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1584">
+<title>DoneFast — LinkedIn Header</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black:       #08080a;
+    --surface:     #121215;
+    --surface-2:   #1a1a1f;
+    --lime:        #c8ff2e;
+    --white:       #f4f1ec;
+    --white-muted: #7a776f;
+    --border:      #2a2a32;
+  }
+
+  html, body {
+    width: 1584px;
+    height: 396px;
+    overflow: hidden;
+    background: var(--black);
+  }
+
+  .frame {
+    position: relative;
+    width: 1584px;
+    height: 396px;
+    background: var(--black);
+    overflow: hidden;
+  }
+
+  /* ── Noise ── */
+  .noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ── Full grid ── */
+  .grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 48px 48px;
+    opacity: 0.3;
+    /* Fade in from ~400px from left, fade out near right edge */
+    mask-image: linear-gradient(to right,
+      transparent 0px,
+      rgba(0,0,0,0.5) 400px,
+      rgba(0,0,0,0.7) 700px,
+      rgba(0,0,0,0.7) 1300px,
+      transparent 1584px
+    );
+  }
+
+  /* ── Edge lines ── */
+  .hr-top, .hr-bottom {
+    position: absolute;
+    left: 0; right: 0;
+    height: 1px;
+    z-index: 2;
+    opacity: 0.4;
+  }
+  .hr-top {
+    top: 0;
+    background: linear-gradient(to right, transparent 0px, var(--border) 300px, var(--lime) 520px, var(--border) 900px, transparent 1584px);
+  }
+  .hr-bottom {
+    bottom: 0;
+    background: linear-gradient(to right, transparent 0px, var(--border) 300px, var(--border) 900px, transparent 1584px);
+    opacity: 0.25;
+  }
+
+  /* ── Lime glow behind brand content ── */
+  .glow {
+    position: absolute;
+    left: 380px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(200,255,46,0.055) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ── Vertical separator between brand + board ── */
+  .divider {
+    position: absolute;
+    left: 890px;
+    top: 40px;
+    bottom: 40px;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--border) 20%, var(--border) 80%, transparent);
+    z-index: 2;
+    opacity: 0.5;
+  }
+
+  /* ── Decorative faint wordmark watermark in danger zone ── */
+  .watermark {
+    position: absolute;
+    left: -10px;
+    bottom: 10px;
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 110px;
+    line-height: 1;
+    color: rgba(200,255,46,0.025);
+    letter-spacing: -0.03em;
+    pointer-events: none;
+    z-index: 2;
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  /* ══════════════════════════════════
+     BRAND LOCKUP — safe zone x:520–880
+     Vertically centered in top 280px
+  ══════════════════════════════════ */
+  .brand {
+    position: absolute;
+    left: 520px;
+    top: 50%;
+    transform: translateY(-50%) translateY(-8px); /* nudge up slightly */
+    width: 360px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lime);
+    margin-bottom: 12px;
+    opacity: 0.85;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 1px;
+    background: var(--lime);
+    opacity: 0.7;
+  }
+
+  .logo {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 78px;
+    line-height: 0.88;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .logo i { color: var(--lime); font-style: italic; }
+
+  .tagline {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    font-size: 15.5px;
+    color: var(--white-muted);
+    line-height: 1.45;
+    margin-bottom: 20px;
+    letter-spacing: 0.01em;
+  }
+
+  .pills {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: var(--white-muted);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    padding: 4px 9px;
+    border-radius: 4px;
+  }
+
+  .url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--lime);
+    letter-spacing: 0.06em;
+    opacity: 0.7;
+  }
+
+  /* ══════════════════════════════════
+     KANBAN — safe zone x:910–1540
+  ══════════════════════════════════ */
+  .board-wrap {
+    position: absolute;
+    left: 910px;
+    right: 44px;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+
+  .badge-float {
+    position: absolute;
+    top: 24px;
+    right: 0;
+    background: var(--lime);
+    color: var(--black);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 5px 12px;
+    border-radius: 20px;
+    z-index: 20;
+    white-space: nowrap;
+  }
+
+  .board {
+    display: flex;
+    gap: 9px;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .col-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white-muted);
+    padding: 0 2px 6px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--border);
+    flex-shrink: 0;
+  }
+  .dot.lime  { background: var(--lime); }
+  .dot.amber { background: #f5a623; }
+  .dot.blue  { background: #4fa3e0; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 9px 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card.active {
+    border-color: rgba(200,255,46,0.3);
+    background: linear-gradient(135deg, var(--surface) 0%, rgba(200,255,46,0.035) 100%);
+  }
+  .card.active::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--lime);
+  }
+
+  .card-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--lime);
+    margin-bottom: 4px;
+    opacity: 0.7;
+  }
+  .card-tag.amber { color: #f5a623; }
+  .card-tag.blue  { color: #4fa3e0; }
+  .card-tag.muted { color: var(--white-muted); }
+
+  .card-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    color: var(--white);
+    line-height: 1.3;
+  }
+  .card-title.dim { color: var(--white-muted); }
+
+  .card-bar {
+    height: 2px;
+    border-radius: 2px;
+    background: var(--surface-2);
+    margin-top: 7px;
+    overflow: hidden;
+  }
+  .card-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: var(--lime);
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6px;
+  }
+  .card-days {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7px;
+    color: var(--white-muted);
+    letter-spacing: 0.04em;
+  }
+  .card-avatar {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 6px;
+    color: var(--white-muted);
+  }
+
+  /* Shimmer */
+  @keyframes shimmer {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(500%); }
+  }
+  .card.active::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(200,255,46,0.05), transparent);
+    transform: translateX(-100%);
+    animation: shimmer 3.5s ease-in-out infinite;
+  }
+
+  /* Corner dot accents */
+  .corner {
+    position: absolute;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--lime);
+    opacity: 0.35;
+    z-index: 3;
+  }
+  .corner.tr { top: 16px; right: 16px; }
+  .corner.bl { bottom: 16px; left: 540px; }
+</style>
+</head>
+<body>
+<div class="frame">
+
+  <!-- Noise -->
+  <svg class="noise" xmlns="http://www.w3.org/2000/svg" width="1584" height="396">
+    <filter id="n">
+      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#n)"/>
+  </svg>
+
+  <!-- Grid -->
+  <div class="grid"></div>
+
+  <!-- Glow behind brand -->
+  <div class="glow"></div>
+
+  <!-- Decorative faint watermark in the profile-pic danger zone -->
+  <div class="watermark">DF</div>
+
+  <!-- Edge lines -->
+  <div class="hr-top"></div>
+  <div class="hr-bottom"></div>
+
+  <!-- Divider between brand and board -->
+  <div class="divider"></div>
+
+  <!-- Corner accents -->
+  <div class="corner tr"></div>
+  <div class="corner bl"></div>
+
+  <!-- ── BRAND LOCKUP (safe zone) ── -->
+  <div class="brand">
+    <div class="eyebrow">Fractional AI CTO</div>
+    <div class="logo"><b>Done</b><i>Fast</i></div>
+    <div class="tagline">Your entire business, automated.</div>
+    <div class="pills">
+      <span class="pill">AI Agents</span>
+      <span class="pill">Automations</span>
+      <span class="pill">Internal Tools</span>
+    </div>
+    <div class="url">donefast.com</div>
+  </div>
+
+  <!-- ── KANBAN BOARD (safe zone) ── -->
+  <div class="board-wrap">
+
+    <div class="badge-float">⚡ 1–3 day delivery</div>
+
+    <div class="board">
+
+      <!-- Queue -->
+      <div class="col">
+        <div class="col-label">Queue <span class="dot"></span></div>
+
+        <div class="card">
+          <div class="card-tag muted">CRM</div>
+          <div class="card-title dim">Lead scoring automation</div>
+          <div class="card-meta">
+            <span class="card-days">~2 days</span>
+            <div class="card-avatar">P</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag muted">Email</div>
+          <div class="card-title dim">Onboarding sequence</div>
+          <div class="card-meta">
+            <span class="card-days">~1 day</span>
+            <div class="card-avatar">P</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag muted">API</div>
+          <div class="card-title dim">Stripe → Notion sync</div>
+          <div class="card-meta">
+            <span class="card-days">~1 day</span>
+            <div class="card-avatar">P</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- In Progress -->
+      <div class="col">
+        <div class="col-label">In Progress <span class="dot lime"></span></div>
+
+        <div class="card active">
+          <div class="card-tag">AI Agent</div>
+          <div class="card-title">Client intake AI agent</div>
+          <div class="card-bar"><div class="card-bar-fill" style="width:70%"></div></div>
+          <div class="card-meta">
+            <span class="card-days">Day 2 of 3</span>
+            <div class="card-avatar">P</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag amber">N8n</div>
+          <div class="card-title dim">Slack alerts pipeline</div>
+          <div class="card-bar"><div class="card-bar-fill" style="width:40%; background:#f5a623"></div></div>
+          <div class="card-meta">
+            <span class="card-days">Day 1 of 2</span>
+            <div class="card-avatar">P</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Done -->
+      <div class="col">
+        <div class="col-label">Done <span class="dot blue"></span></div>
+
+        <div class="card">
+          <div class="card-tag blue">Zapier</div>
+          <div class="card-title dim">Revenue dashboard</div>
+          <div class="card-meta">
+            <span class="card-days">Delivered</span>
+            <div class="card-avatar">✓</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag blue">Make</div>
+          <div class="card-title dim">Facebook → CRM sync</div>
+          <div class="card-meta">
+            <span class="card-days">Delivered</span>
+            <div class="card-avatar">✓</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag blue">Bot</div>
+          <div class="card-title dim">Telegram order bot</div>
+          <div class="card-meta">
+            <span class="card-days">Delivered</span>
+            <div class="card-avatar">✓</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

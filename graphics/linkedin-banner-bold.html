@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DoneFast — LinkedIn Banner (Bold)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black:       #08080a;
+    --surface:     #121215;
+    --surface-2:   #1a1a1f;
+    --lime:        #c8ff2e;
+    --white:       #f4f1ec;
+    --white-muted: #7a776f;
+    --border:      #2a2a32;
+  }
+
+  html, body {
+    width: 1584px;
+    height: 396px;
+    overflow: hidden;
+    background: var(--black);
+    margin: 0;
+  }
+
+  .frame {
+    position: relative;
+    width: 1584px;
+    height: 396px;
+    background: var(--black);
+    overflow: hidden;
+  }
+
+  /* Subtle noise */
+  .noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.035;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Faint glow behind headline */
+  .glow {
+    position: absolute;
+    left: 620px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 720px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(200,255,46,0.045) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Subtle tech grid with gradient fade */
+  .grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 36px 36px;
+    opacity: 0.28;
+    z-index: 1;
+    pointer-events: none;
+    mask-image: linear-gradient(135deg,
+      transparent 0%,
+      rgba(0,0,0,0.15) 20%,
+      rgba(0,0,0,0.5) 42%,
+      rgba(0,0,0,0.65) 60%,
+      rgba(0,0,0,0.35) 85%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(135deg,
+      transparent 0%,
+      rgba(0,0,0,0.15) 20%,
+      rgba(0,0,0,0.5) 42%,
+      rgba(0,0,0,0.65) 60%,
+      rgba(0,0,0,0.35) 85%,
+      transparent 100%
+    );
+  }
+
+  /* Smooth curved arrow — sweeps up from bottom-left profile area */
+  .arrow {
+    position: absolute;
+    left: 40px;
+    top: 100px;
+    width: 460px;
+    height: 260px;
+    z-index: 5;
+    color: var(--lime);
+  }
+
+  /* Content container — safely past LinkedIn profile pic */
+  .content {
+    position: absolute;
+    left: 548px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 980px;
+    z-index: 10;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--lime);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 1px;
+    background: var(--lime);
+  }
+
+  .headline {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 1.12;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    margin-bottom: 22px;
+  }
+
+  /* Highlighter-style lime marker on key phrase */
+  .highlight {
+    background: var(--lime);
+    color: var(--black);
+    padding: 2px 11px 4px;
+    display: inline-block;
+    transform: skew(-4deg) rotate(-0.6deg);
+    font-weight: 800;
+    border-radius: 3px;
+    box-shadow: 2px 2px 0 rgba(200,255,46,0.25);
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+  /* Underline rule */
+  .rule {
+    width: 72px;
+    height: 3px;
+    background: var(--white);
+    margin-bottom: 18px;
+    border-radius: 2px;
+  }
+
+  /* Hashtag pills */
+  .pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 7px 14px;
+    border-radius: 6px;
+  }
+  .pill.active {
+    background: rgba(200,255,46,0.08);
+    border-color: rgba(200,255,46,0.5);
+    color: var(--lime);
+  }
+
+  /* Decorative faint watermark in profile-pic danger zone */
+  .watermark {
+    position: absolute;
+    left: -14px;
+    bottom: -10px;
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 120px;
+    line-height: 1;
+    color: rgba(200,255,46,0.028);
+    letter-spacing: -0.03em;
+    pointer-events: none;
+    z-index: 2;
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  /* Edge lines */
+  .hr-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent 0px, var(--border) 300px, var(--lime) 540px, var(--border) 900px, transparent 1584px);
+    opacity: 0.4;
+    z-index: 2;
+  }
+  .hr-bottom {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent 0px, var(--border) 300px, var(--border) 1200px, transparent 1584px);
+    opacity: 0.25;
+    z-index: 2;
+  }
+
+  /* Corner accents */
+  .corner {
+    position: absolute;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--lime);
+    opacity: 0.4;
+    z-index: 3;
+  }
+  .corner.tr { top: 18px; right: 18px; }
+</style>
+</head>
+<body>
+<div class="frame">
+
+  <!-- Noise -->
+  <svg class="noise" xmlns="http://www.w3.org/2000/svg" width="1584" height="396">
+    <filter id="n">
+      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#n)"/>
+  </svg>
+
+  <!-- Grid -->
+  <div class="grid"></div>
+
+  <!-- Glow -->
+  <div class="glow"></div>
+
+  <!-- Faint DF watermark in profile pic zone -->
+  <div class="watermark">DF</div>
+
+  <!-- Edge lines -->
+  <div class="hr-top"></div>
+  <div class="hr-bottom"></div>
+
+  <!-- Corner -->
+  <div class="corner tr"></div>
+
+  <!-- Smooth curved lime arrow — tail hides inside profile pic circle, sweeps up to headline -->
+  <svg class="arrow" viewBox="0 0 460 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Single smooth cubic bezier, shorter tail starting inside profile pic zone -->
+    <path d="M 150 250 C 250 250, 275 95, 420 95"
+          stroke="currentColor"
+          stroke-width="5"
+          stroke-linecap="round"
+          fill="none"/>
+    <!-- Arrow head pointing right at the headline -->
+    <path d="M 405 82 L 424 95 L 405 108"
+          stroke="currentColor"
+          stroke-width="5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          fill="none"/>
+  </svg>
+
+  <!-- Content -->
+  <div class="content">
+    <div class="eyebrow">Fractional AI CTO</div>
+    <div class="headline">
+      Custom AI agents &amp; automations<br>
+      Delivered <span class="highlight">in 1–3 days, not months</span>
+    </div>
+    <div class="rule"></div>
+    <div class="pills">
+      <span class="pill active">#Automation</span>
+      <span class="pill">#AIAgents</span>
+      <span class="pill">#N8n</span>
+      <span class="pill">#Zapier</span>
+      <span class="pill">#FastShip</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
