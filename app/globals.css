@@ -446,8 +446,8 @@ body::before {
 .trusted-head .label::before { display: none; }
 .trusted-grid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: clamp(24px, 3vw, 56px);
+    grid-template-columns: repeat(8, 1fr);
+    gap: clamp(20px, 2.5vw, 44px);
     align-items: center;
     justify-items: center;
 }
@@ -470,33 +470,26 @@ body::before {
 }
 .trusted-item:hover img { opacity: 0.85; }
 /* Square/icon-heavy logos get a larger height to balance visual weight */
-.trusted-item:nth-child(6) { height: 72px; }
-.trusted-item:nth-child(6) img { max-height: 72px; }
-.trusted-item:nth-child(7) { height: 56px; }
-.trusted-item:nth-child(7) img { max-height: 56px; }
-.trusted-item:nth-child(4) { height: 58px; }
+.trusted-item:nth-child(4) { height: 58px; }          /* FOM */
 .trusted-item:nth-child(4) img { max-height: 58px; }
+.trusted-item:nth-child(6) { height: 72px; }          /* Musee (square) */
+.trusted-item:nth-child(6) img { max-height: 72px; }
+.trusted-item:nth-child(7) { height: 76px; }          /* Kaplan MD (square + tagline) */
+.trusted-item:nth-child(7) img { max-height: 76px; }
+.trusted-item:nth-child(8) { height: 56px; }          /* Perfect Shaker */
+.trusted-item:nth-child(8) img { max-height: 56px; }
 
 @media (max-width: 960px) {
     .trusted-grid {
-        grid-template-columns: repeat(12, 1fr);
-        gap: 40px 20px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px 24px;
     }
-    .trusted-item:nth-child(1),
-    .trusted-item:nth-child(2),
-    .trusted-item:nth-child(3),
-    .trusted-item:nth-child(4) { grid-column: span 3; }
-    .trusted-item:nth-child(5) { grid-column: 1 / span 4; }
-    .trusted-item:nth-child(6) { grid-column: 5 / span 4; }
-    .trusted-item:nth-child(7) { grid-column: 9 / span 4; }
 }
 @media (max-width: 560px) {
     .trusted-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 36px 24px;
     }
-    .trusted-item:nth-child(n) { grid-column: auto; }
-    .trusted-item:nth-child(7) { grid-column: 1 / -1; }
 }
 
 /* ——— SERVICE MARQUEE TICKER ——— */
