@@ -105,6 +105,24 @@ const HOMEPAGE_HTML = `
     </div>
 </section>
 
+<!-- ===== TRUSTED BY ===== -->
+<section class="trusted">
+    <div class="wrap">
+        <div class="trusted-head rv">
+            <div class="label">Trusted by</div>
+        </div>
+        <div class="trusted-grid rv rv-d1">
+            <div class="trusted-item"><img src="/logos/january-labs.webp" alt="January Labs" loading="lazy" /></div>
+            <div class="trusted-item"><img src="/logos/grounded.webp" alt="Grounded" loading="lazy" /></div>
+            <div class="trusted-item"><img src="/logos/elate-beauty.svg" alt="Elate Beauty" loading="lazy" /></div>
+            <div class="trusted-item"><img src="/logos/fom.avif" alt="FOM" loading="lazy" /></div>
+            <div class="trusted-item"><img src="/logos/skoon.avif" alt="SKOON" loading="lazy" /></div>
+            <div class="trusted-item"><img src="/logos/musee.svg" alt="Musee" loading="lazy" /></div>
+            <div class="trusted-item"><img src="/logos/ps.svg" alt="Perse" loading="lazy" /></div>
+        </div>
+    </div>
+</section>
+
 <!-- ===== HOW IT WORKS ===== -->
 <section class="how" id="how">
     <div class="wrap">
