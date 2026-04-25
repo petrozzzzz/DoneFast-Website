@@ -2,29 +2,29 @@ import type { Metadata } from "next";
 import PageClient from "./page-client";
 
 export const metadata: Metadata = {
-  title: "DoneFast — Development Subscriptions That Actually Ship",
+  title: "DoneFast — The agency alternative for AI automation",
   description:
-    "Unlimited development requests. One flat monthly fee. Pause or cancel anytime. Delivered in days, not weeks.",
+    "Stop hiring agencies for $5,000 builds. AI workflows, internal tools, and custom automations for $750/month flat. 1-3 day delivery. Cancel anytime.",
   alternates: { canonical: "https://donefast.com/" },
   openGraph: {
-    title: "DoneFast — Development Subscriptions That Actually Ship",
+    title: "DoneFast — The agency alternative for AI automation",
     description:
-      "Unlimited development requests. One flat monthly fee. Pause or cancel anytime. Delivered in days, not weeks.",
+      "Stop hiring agencies for $5,000 builds. AI workflows, internal tools, and custom automations for $750/month flat. 1-3 day delivery. Cancel anytime.",
     url: "https://donefast.com/",
     type: "website",
     images: ["https://donefast.com/og-image.jpg"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "DoneFast — Development Subscriptions That Actually Ship",
+    title: "DoneFast — The agency alternative for AI automation",
     description:
-      "Unlimited development requests. One flat monthly fee. Pause or cancel anytime.",
+      "AI workflows, internal tools, and custom automations for $750/month flat. Cancel anytime.",
     images: ["https://donefast.com/og-image.jpg"],
   },
 };
 
 const HOMEPAGE_HTML = `
-<noscript><style>.rv{opacity:1;transform:none}.split-line-inner{transform:none}.hero-eyebrow,.hero h1,.hero-sub,.hero-actions,.hero-stats{opacity:1;animation:none}</style></noscript>
+<noscript><style>.rv{opacity:1;transform:none}.split-line-inner{transform:none}.hero-eyebrow,.hero h1,.hero-sub,.hero-actions,.hero-trust-strip{opacity:1;animation:none}</style></noscript>
 
 <!-- ===== NAV ===== -->
 <nav class="nav" id="nav">
@@ -33,9 +33,10 @@ const HOMEPAGE_HTML = `
         <ul class="nav-links">
             <li><a href="#how">How it works</a></li>
             <li><a href="#benefits">Why DoneFast</a></li>
+            <li><a href="#pricing">Pricing</a></li>
             <li><a href="#faq">FAQ</a></li>
         </ul>
-        <button data-cal-link="donefast/30min" data-cal-config='{"layout":"month_view","theme":"dark"}' class="nav-cta" style="border:none;cursor:pointer;">Book a call</button>
+        <button data-cal-link="donefast/15min" data-cal-config='{"layout":"month_view","theme":"dark"}' class="nav-cta" style="border:none;cursor:pointer;">Book a call</button>
         <button class="mob-btn" onclick="openMobNav()" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
@@ -46,8 +47,9 @@ const HOMEPAGE_HTML = `
     <button class="mob-nav-close" onclick="closeMobNav()">&times;</button>
     <a href="#how" onclick="closeMobNav()">How it works</a>
     <a href="#benefits" onclick="closeMobNav()">Why DoneFast</a>
+    <a href="#pricing" onclick="closeMobNav()">Pricing</a>
     <a href="#faq" onclick="closeMobNav()">FAQ</a>
-    <button data-cal-link="donefast/30min" data-cal-config='{"layout":"month_view","theme":"dark"}' onclick="closeMobNav()" class="btn-cta" style="margin-top:12px;font-size:14px;border:none;cursor:pointer;">Book a call</button>
+    <button data-cal-link="donefast/15min" data-cal-config='{"layout":"month_view","theme":"dark"}' onclick="closeMobNav()" class="btn-cta" style="margin-top:12px;font-size:14px;border:none;cursor:pointer;">Book a call</button>
 </div>
 
 <!-- ===== HERO ===== -->
@@ -67,39 +69,31 @@ const HOMEPAGE_HTML = `
         <div class="hero-content">
             <div class="hero-eyebrow">
                 <span class="pulse"></span>
-                Your fractional AI CTO
+                Built for businesses tired of $5,000 quotes
             </div>
             <h1>
-                <span class="split-line"><span class="split-line-inner">Your entire</span></span>
-                <span class="split-line"><span class="split-line-inner serif-light">business,</span></span>
-                <span class="split-line"><span class="split-line-inner"><em>automated.</em></span></span>
+                <span class="split-line"><span class="split-line-inner">Stop hiring</span></span>
+                <span class="split-line"><span class="split-line-inner serif-light">agencies.</span></span>
+                <span class="split-line"><span class="split-line-inner">Start shipping <em>automations.</em></span></span>
             </h1>
-            <p class="hero-pause">No tech team required.</p>
             <p class="hero-sub">
-                We build your automations, AI workflows, and internal tools. You pay one flat monthly fee.
+                AI workflows, internal tools, and custom automations &mdash; built and managed for one flat fee. No proposals. No scoping calls. No $5,000 invoices for a Zapier flow.
             </p>
             <div class="hero-actions">
-                <button data-cal-link="donefast/30min" data-cal-config='{"layout":"month_view","theme":"dark"}' class="btn-cta" style="border:none;cursor:pointer;">
-                    Book a free call
+                <button data-cal-link="donefast/15min" data-cal-config='{"layout":"month_view","theme":"dark"}' class="btn-cta" style="border:none;cursor:pointer;">
+                    Book a 15-min call
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>
-                <a href="#how" class="btn-ghost">See how it works</a>
+                <a href="#pricing" class="btn-ghost">See pricing</a>
             </div>
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <span class="val">1-3 days</span>
-                    <span class="desc">Avg Delivery</span>
-                </div>
-                <div class="hero-stat-div"></div>
-                <div class="hero-stat">
-                    <span class="val">Unlimited</span>
-                    <span class="desc">Requests</span>
-                </div>
-                <div class="hero-stat-div"></div>
-                <div class="hero-stat">
-                    <span class="val">Anytime</span>
-                    <span class="desc">Pause &amp; Resume</span>
-                </div>
+            <div class="hero-trust-strip">
+                <span>$750/month flat</span>
+                <span class="hero-trust-sep">&middot;</span>
+                <span>Unlimited requests</span>
+                <span class="hero-trust-sep">&middot;</span>
+                <span>1-3 day delivery</span>
+                <span class="hero-trust-sep">&middot;</span>
+                <span>Pause anytime</span>
             </div>
         </div>
     </div>
@@ -124,6 +118,23 @@ const HOMEPAGE_HTML = `
     </div>
 </section>
 
+<!-- ===== AGENCY FATIGUE ===== -->
+<section class="fatigue">
+    <div class="wrap">
+        <div class="fatigue-inner rv">
+            <h2>You've been <em>here</em> before.</h2>
+            <div class="fatigue-body">
+                <p>You know your business needs better automation. You've talked to three agencies. They sent decks, scoped projects, quoted $5,000 to $15,000 &mdash; and that's just the build. Then a retainer. Then change orders.</p>
+                <p>The work that actually needs to happen &mdash; connecting tools, automating handoffs, building the internal dashboard nobody else can &mdash; is straightforward. The pricing isn't.</p>
+            </div>
+            <div class="fatigue-punchline">
+                <span class="fatigue-punchline-lead">DoneFast is the alternative.</span>
+                <span class="fatigue-punchline-rest">$750/month, flat. Send us what you need built. We build it. When that's done, send the next one. Cancel when you're done.</span>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ===== HOW IT WORKS ===== -->
 <section class="how" id="how">
     <div class="wrap">
@@ -135,54 +146,23 @@ const HOMEPAGE_HTML = `
         <div class="how-track">
             <div class="hstep rv rv-d1">
                 <div class="hstep-ring"><span>1</span></div>
-                <h3>Subscribe</h3>
-                <p>Pick a plan. Get your board in under an hour.</p>
-                <span class="hstep-tag">Instant access</span>
+                <h3>Add it</h3>
+                <p>Drop a request on your board. Loom video, written brief, or rough idea &mdash; we'll figure it out.</p>
+                <span class="hstep-tag">Your board</span>
             </div>
             <div class="hstep rv rv-d2">
                 <div class="hstep-ring"><span>2</span></div>
-                <h3>Request</h3>
-                <p>Tell us what to build. Add unlimited requests.</p>
-                <span class="hstep-tag">Unlimited</span>
+                <h3>We build it</h3>
+                <p>AI does the heavy lifting. A senior engineer reviews and tests every workflow before you see it.</p>
+                <span class="hstep-tag">AI + senior review</span>
             </div>
             <div class="hstep rv rv-d3">
                 <div class="hstep-ring"><span>3</span></div>
-                <h3>Receive</h3>
-                <p>Get it delivered in 1-3 days. Approve it or request changes.</p>
+                <h3>Ship it</h3>
+                <p>1-3 days for most requests. Bigger builds get broken into pieces so you see momentum.</p>
                 <span class="hstep-tag">1-3 days</span>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- ===== TICKER ===== -->
-<section class="ticker">
-    <div class="ticker-track" id="ticker">
-        <span class="ticker-item">Zapier workflows</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">N8n automations</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">AI agents</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">Lead capture systems</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">Client onboarding</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">CRM integrations</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">Reporting dashboards</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">Email sequences</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">E-commerce automations</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">Slack &amp; Telegram bots</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">API integrations</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">Custom chatbots</span><span class="ticker-sep">&middot;</span>
-        <!-- Duplicate for seamless loop -->
-        <span class="ticker-item">Zapier workflows</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">N8n automations</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">AI agents</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">Lead capture systems</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">Client onboarding</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">CRM integrations</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">Reporting dashboards</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">Email sequences</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">E-commerce automations</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">Slack &amp; Telegram bots</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">API integrations</span><span class="ticker-sep">&middot;</span>
-        <span class="ticker-item">Custom chatbots</span><span class="ticker-sep">&middot;</span>
     </div>
 </section>
 
@@ -208,7 +188,7 @@ const HOMEPAGE_HTML = `
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
                 </div>
                 <h3>Fixed monthly rate</h3>
-                <p>Same price every month. No surprises.</p>
+                <p>$750 every month. No proposals. No surprises.</p>
             </div>
             <div class="ben rv rv-d3">
                 <div class="ben-icon">
@@ -221,8 +201,8 @@ const HOMEPAGE_HTML = `
                 <div class="ben-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
-                <h3>AI + human review</h3>
-                <p>AI builds it. A human checks it before you see it.</p>
+                <h3>AI + senior review</h3>
+                <p>AI builds it. A senior engineer tests it before you see it.</p>
             </div>
             <div class="ben rv rv-d5">
                 <div class="ben-icon">
@@ -242,27 +222,49 @@ const HOMEPAGE_HTML = `
     </div>
 </section>
 
-<!-- ===== WHAT WE BUILD ===== -->
-<section class="build" id="build">
+<!-- ===== UNLIMITED EXPLAINED ===== -->
+<section class="unlimited" id="unlimited">
     <div class="wrap">
-        <div class="build-head rv">
-            <div class="label">What we build</div>
-            <h2>One subscription.<br>Anything you need <em>automated.</em></h2>
+        <div class="unlimited-head rv">
+            <div class="label">Unlimited explained</div>
+            <h2>'Unlimited' &mdash; <em>what it actually means.</em></h2>
         </div>
 
-        <div class="build-tags">
-            <span class="build-tag rv rv-d1">AI agents &amp; automations</span>
-            <span class="build-tag rv rv-d2">N8n workflows</span>
-            <span class="build-tag rv rv-d3">Zapier &amp; Make integrations</span>
-            <span class="build-tag rv rv-d1">Internal tools</span>
-            <span class="build-tag rv rv-d2">API &amp; third-party integrations</span>
-            <span class="build-tag rv rv-d3">Dashboards &amp; reporting</span>
-            <span class="build-tag rv rv-d4">Lead capture &amp; CRM automations</span>
-            <span class="build-tag rv rv-d5">Email &amp; follow-up sequences</span>
-            <span class="build-tag rv rv-d6">Telegram &amp; Slack bots</span>
-            <span class="build-tag rv rv-d7">E-commerce automations</span>
-            <span class="build-tag rv rv-d8">Client portals</span>
-            <span class="build-tag rv rv-d1">+ more</span>
+        <div class="unlimited-body rv rv-d1">
+            <p>Other 'unlimited' services bury the catch in the fine print. We won't.</p>
+            <p>Here's the deal: you can have as many requests in your queue as you want. Add 5, add 50, add them faster than we can ship &mdash; your queue is unlimited. We work on one request at a time, and most ship in 1-3 days. So in a typical month, expect 8-15 things shipped, depending on complexity.</p>
+        </div>
+
+        <div class="unlimited-grid">
+            <div class="unlimited-block rv rv-d2">
+                <div class="unlimited-block-tag">What gets built</div>
+                <ul class="unlimited-list">
+                    <li>Workflow automations (the kind that used to live in Zapier or N8N, now built properly)</li>
+                    <li>AI agents that actually do work &mdash; qualifying leads, processing documents, drafting outreach</li>
+                    <li>Internal tools and dashboards</li>
+                    <li>Integrations between systems that don't talk to each other</li>
+                    <li>The thing your team keeps doing manually that shouldn't exist</li>
+                </ul>
+            </div>
+            <div class="unlimited-block unlimited-block--neg rv rv-d3">
+                <div class="unlimited-block-tag unlimited-block-tag--neg">What doesn't fit</div>
+                <p>Full SaaS products, native mobile apps, 6-month engagements with a roadmap. We're an ops engineering team, not a product studio.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== WHY $750 ===== -->
+<section class="why-750">
+    <div class="wrap">
+        <div class="why-750-inner rv">
+            <div class="label">Pricing rationale</div>
+            <h2>Why it's $750, <em>not $5,000.</em></h2>
+            <div class="why-750-body">
+                <p>Agencies charge $5,000 because they have account managers, sales teams, project managers, and a designer who has to make the deck pretty. That overhead is real, and you pay for it.</p>
+                <p>We use AI to do most of the building, with a senior engineer reviewing every output. No account managers. No sales calls after the first one. No deck. Just work shipped.</p>
+                <p class="why-750-kicker">The savings get passed to you.</p>
+            </div>
         </div>
     </div>
 </section>
@@ -272,55 +274,34 @@ const HOMEPAGE_HTML = `
     <div class="wrap">
         <div class="pricing-head rv">
             <div class="label">Pricing</div>
-            <h2>Two ways to work<br>with us.</h2>
+            <h2>One plan.<br><em>One price.</em></h2>
         </div>
 
-        <div class="pricing-grid">
-            <div class="price-card builder rv rv-d1">
-                <span class="price-badge">Perfect for a single project</span>
-                <div class="price-name">Once-off Build</div>
+        <div class="pricing-grid pricing-grid--single">
+            <div class="price-card studio rv rv-d1">
+                <span class="price-badge">Subscription</span>
                 <div class="price-amount">
-                    <span class="dollar" style="font-size:38px;letter-spacing:-0.02em;">Custom quote</span>
+                    <span class="dollar">$750</span>
+                    <span class="period">/ month</span>
                 </div>
+                <p class="price-tagline">Flat. Cancel anytime.</p>
                 <ul class="price-features">
-                    <li>Fixed scope, fixed price</li>
-                    <li>Avg. 1-3 day delivery per milestone</li>
-                    <li>Unlimited revisions until you're happy</li>
-                    <li>Full handover &amp; documentation</li>
-                    <li>Yours to keep forever</li>
-                </ul>
-                <button data-cal-link="donefast/30min" data-cal-config='{"layout":"month_view","theme":"dark"}' class="price-cta" style="border:none;cursor:pointer;">Book a call</button>
-            </div>
-
-            <div class="price-card studio rv rv-d2">
-                <span class="price-badge">Most popular</span>
-                <div class="price-name">Monthly Retainer</div>
-                <div class="price-amount">
-                    <span class="dollar" style="font-size:38px;letter-spacing:-0.02em;">Book a call to discuss</span>
-                </div>
-                <ul class="price-features">
-                    <li>One active request at a time</li>
-                    <li>Avg. 1-3 day delivery</li>
-                    <li>Unlimited requests in queue</li>
-                    <li>Automation board included</li>
-                    <li>AI-powered development</li>
+                    <li>Unlimited requests in your queue</li>
+                    <li>1-3 day delivery on most requests</li>
+                    <li>One active build at a time</li>
+                    <li>Senior engineer review on everything</li>
                     <li>Weekly 30-min strategy call</li>
-                    <li>Pause or cancel anytime</li>
+                    <li>You own everything we build</li>
+                    <li>Pause your subscription anytime</li>
                 </ul>
-                <button data-cal-link="donefast/30min" data-cal-config='{"layout":"month_view","theme":"dark"}' class="price-cta" style="border:none;cursor:pointer;">Book a call</button>
+                <div class="price-ctas">
+                    <button data-cal-link="donefast/15min" data-cal-config='{"layout":"month_view","theme":"dark"}' class="price-cta" style="border:none;cursor:pointer;">Get started</button>
+                    <button data-cal-link="donefast/15min" data-cal-config='{"layout":"month_view","theme":"dark"}' class="price-cta-ghost" style="border:none;cursor:pointer;">Book a call first</button>
+                </div>
             </div>
         </div>
 
-        <div class="pricing-extras rv rv-d3">
-            <div class="pricing-extra">
-                <h4><span class="icon" aria-hidden="true">&#x23F8;</span> Pause anytime</h4>
-                <p>Pause your subscription. Your remaining days roll over.</p>
-            </div>
-            <div class="pricing-extra">
-                <h4><span class="icon" aria-hidden="true">&#x1F91D;</span> Try it for a week</h4>
-                <p>Not happy after 7 days? 75% refund. No questions.</p>
-            </div>
-        </div>
+        <p class="pricing-footnote rv rv-d2">Need parallel builds, dedicated engineering hours, or a custom integration? <button data-cal-link="donefast/15min" data-cal-config='{"layout":"month_view","theme":"dark"}' class="pricing-footnote-link" style="border:none;cursor:pointer;background:none;padding:0;font:inherit;">Book a call</button> &mdash; we'll quote a custom plan.</p>
     </div>
 </section>
 
@@ -332,7 +313,7 @@ const HOMEPAGE_HTML = `
                 <div class="label">FAQ</div>
                 <h2>Got questions?<br><em>Good.</em></h2>
                 <p>Here are the ones we get every day.</p>
-                <button data-cal-link="donefast/30min" data-cal-config='{"layout":"month_view","theme":"dark"}' class="btn-cta" style="font-size:14px; padding:14px 28px; border:none; cursor:pointer;">
+                <button data-cal-link="donefast/15min" data-cal-config='{"layout":"month_view","theme":"dark"}' class="btn-cta" style="font-size:14px; padding:14px 28px; border:none; cursor:pointer;">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     Book a call
                 </button>
@@ -340,66 +321,52 @@ const HOMEPAGE_HTML = `
             <div class="faq-list">
                 <div class="faq-item rv rv-d1">
                     <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-                        Do I need to be technical to work with DoneFast?
+                        How is this not just a worse version of an agency?
                         <span class="arrow">+</span>
                     </button>
-                    <div class="faq-a"><div class="faq-a-in">Nope. You describe what you want. We handle the tech.</div></div>
+                    <div class="faq-a"><div class="faq-a-in">Agencies sell projects. We sell capacity. An agency takes 4 weeks to scope what we ship in 4 days. The tradeoff: we don't do 6-month roadmaps. If you need that, hire an agency.</div></div>
                 </div>
                 <div class="faq-item rv rv-d2">
                     <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-                        How fast will my automation be delivered?
+                        How is this not just AI slop?
                         <span class="arrow">+</span>
                     </button>
-                    <div class="faq-a"><div class="faq-a-in">1-3 days for most requests. Bigger builds get broken into smaller pieces so you see progress fast.</div></div>
+                    <div class="faq-a"><div class="faq-a-in">AI builds the first version. A senior engineer tests, reviews, and rewrites whatever's wrong before it ships. You never get untested code. The AI is a force multiplier, not a replacement for engineering judgment.</div></div>
                 </div>
                 <div class="faq-item rv rv-d3">
                     <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-                        What counts as one request?
+                        What if my request is too complex?
                         <span class="arrow">+</span>
                     </button>
-                    <div class="faq-a"><div class="faq-a-in">One clear deliverable. A workflow, a bot, a dashboard, an integration. If it's too big, we break it up for you.</div></div>
+                    <div class="faq-a"><div class="faq-a-in">We break it into smaller requests. You see progress every few days instead of waiting weeks for one big delivery. If something is genuinely too big for the model &mdash; like a custom SaaS &mdash; we'll tell you upfront and refer you somewhere better.</div></div>
                 </div>
                 <div class="faq-item rv rv-d4">
                     <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-                        Can you automate my entire business operations?
+                        Can you work with my existing Zapier / N8N / Make setup?
                         <span class="arrow">+</span>
                     </button>
-                    <div class="faq-a"><div class="faq-a-in">Yes. That's exactly what the retainer is for. We work through it card by card, starting with what saves you the most time.</div></div>
+                    <div class="faq-a"><div class="faq-a-in">Yes. We work with whatever you already use, or we'll recommend something better if your current stack is the bottleneck.</div></div>
                 </div>
                 <div class="faq-item rv rv-d5">
                     <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-                        Who actually builds everything?
+                        How fast do you actually ship?
                         <span class="arrow">+</span>
                     </button>
-                    <div class="faq-a"><div class="faq-a-in">AI does the heavy lifting. A senior engineer reviews everything before you see it.</div></div>
+                    <div class="faq-a"><div class="faq-a-in">1-3 days for most requests. A simple workflow ships same-day. A complex multi-system integration might take a week, broken into smaller deliveries.</div></div>
                 </div>
                 <div class="faq-item rv rv-d6">
                     <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-                        What if I don't like the result?
+                        What happens to the work if I cancel?
                         <span class="arrow">+</span>
                     </button>
-                    <div class="faq-a"><div class="faq-a-in">We revise until you're happy. Unlimited revisions, always.</div></div>
+                    <div class="faq-a"><div class="faq-a-in">You own everything from day one. Cancel and keep using everything we built. We hand over all code, credentials, and documentation.</div></div>
                 </div>
                 <div class="faq-item rv rv-d7">
                     <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-                        How does pausing work?
+                        Is there a contract?
                         <span class="arrow">+</span>
                     </button>
-                    <div class="faq-a"><div class="faq-a-in">Pause mid-cycle, your remaining days freeze. Resume whenever you want.</div></div>
-                </div>
-                <div class="faq-item rv rv-d8">
-                    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-                        What tools and platforms do you work with?
-                        <span class="arrow">+</span>
-                    </button>
-                    <div class="faq-a"><div class="faq-a-in">N8n, Zapier, Make, React, Next.js, Python, Supabase, and more. We build around whatever you already use.</div></div>
-                </div>
-                <div class="faq-item rv rv-d1">
-                    <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
-                        Do I own everything you build?
-                        <span class="arrow">+</span>
-                    </button>
-                    <div class="faq-a"><div class="faq-a-in">100%. Everything we build is yours from day one.</div></div>
+                    <div class="faq-a"><div class="faq-a-in">Month-to-month. Cancel anytime. Pause anytime &mdash; your remaining days roll over.</div></div>
                 </div>
             </div>
         </div>
@@ -411,19 +378,19 @@ const HOMEPAGE_HTML = `
     <div class="wrap">
         <div class="contact-inner rv">
             <div class="label" style="justify-content:center;margin-bottom:20px;"><span style="display:none;"></span>Get started</div>
-            <h2>Let's talk about<br><em>your business</em></h2>
-            <p>Free 30-min call. We'll show you what we'd automate first.</p>
+            <h2>Less talk. <em>More shipped.</em></h2>
+            <p>Book a 15-minute call. We'll show you exactly what we'd build first.</p>
 
             <div style="margin-top:48px;">
                 <button
-                    data-cal-link="donefast/30min"
+                    data-cal-link="donefast/15min"
                     data-cal-config='{"layout":"month_view","theme":"dark"}'
                     class="btn-cta"
                     style="font-size:18px; padding:22px 48px; border:none; cursor:pointer;">
-                    Book a free 30-min call
+                    Book a free 15-min call
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>
-                <p style="margin-top:16px; font-size:13px; color:var(--white-muted);">No commitment. No pitch. Just clarity.</p>
+                <p style="margin-top:16px; font-size:13px; color:var(--white-muted);">No commitment. No deck. Just clarity.</p>
             </div>
         </div>
     </div>
@@ -445,7 +412,7 @@ const HOMEPAGE_HTML = `
 </footer>
 
 <!-- ===== FLOATING CTA ===== -->
-<button data-cal-link="donefast/30min" data-cal-config='{"layout":"month_view","theme":"dark"}' class="float-cta" aria-label="Book a call" style="border:none;cursor:pointer;">
+<button data-cal-link="donefast/15min" data-cal-config='{"layout":"month_view","theme":"dark"}' class="float-cta" aria-label="Book a call" style="border:none;cursor:pointer;">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     Book a call
 </button>
