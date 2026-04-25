@@ -176,8 +176,8 @@ body::before {
 /* ——— HERO ——— */
 .hero {
     min-height: 100vh;
-    display: flex; align-items: flex-end;
-    padding: 100px 0 80px;
+    display: flex; align-items: center;
+    padding: 120px 0 80px;
     position: relative; overflow: hidden;
 }
 .hero-atmosphere { position: absolute; inset: 0; pointer-events: none; }
