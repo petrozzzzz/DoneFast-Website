@@ -1130,24 +1130,25 @@ body::before {
 }
 .fatigue h2 {
     font-family: var(--font-serif);
-    font-size: clamp(40px, 6vw, 72px);
+    font-size: clamp(44px, 6.5vw, 80px);
     font-weight: 400;
     line-height: 0.95;
     letter-spacing: -0.02em;
-    margin-bottom: 56px;
+    margin-bottom: 88px;
     text-align: center;
 }
 .fatigue h2 em { font-style: italic; color: var(--lime); }
 .fatigue-body p {
-    font-size: clamp(17px, 1.55vw, 19px);
-    line-height: 1.75;
+    font-size: clamp(22px, 2vw, 28px);
+    line-height: 1.55;
     color: var(--white-dim);
-    margin-bottom: 28px;
+    margin-bottom: 56px;
+    letter-spacing: -0.005em;
 }
 .fatigue-body p:last-child { margin-bottom: 0; }
 .fatigue-punchline {
-    margin-top: 56px;
-    padding: 36px 40px;
+    margin-top: 96px;
+    padding: 44px 48px;
     border-left: 3px solid var(--lime);
     background: linear-gradient(90deg, var(--lime-dim) 0%, transparent 70%);
     border-radius: 0 16px 16px 0;
@@ -1155,19 +1156,19 @@ body::before {
 .fatigue-punchline-lead {
     display: block;
     font-family: var(--font-serif);
-    font-size: clamp(28px, 3vw, 36px);
+    font-size: clamp(32px, 3.4vw, 44px);
     font-weight: 400;
     font-style: italic;
     color: var(--lime);
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-    margin-bottom: 16px;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    margin-bottom: 24px;
 }
 .fatigue-punchline-rest {
     display: block;
     font-family: var(--font-sans);
-    font-size: clamp(16px, 1.5vw, 18px);
-    line-height: 1.7;
+    font-size: clamp(18px, 1.65vw, 21px);
+    line-height: 1.65;
     color: var(--white);
 }
 
@@ -1211,30 +1212,41 @@ body::before {
     margin: 0 auto;
 }
 .unlimited-block {
-    background: var(--surface);
-    border: 1px solid var(--border-hover);
+    background: linear-gradient(135deg, rgba(200, 255, 46, 0.08), rgba(200, 255, 46, 0.02) 60%, transparent);
+    border: 1px solid rgba(200, 255, 46, 0.32);
     border-radius: 20px;
     padding: 44px;
+    position: relative;
+    overflow: hidden;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
+.unlimited-block::before {
+    content: '';
+    position: absolute; top: -45%; right: -25%;
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(200, 255, 46, 0.09), transparent 70%);
+    pointer-events: none;
+}
+.unlimited-block > * { position: relative; z-index: 1; }
 .unlimited-block:hover {
-    border-color: rgba(200, 255, 46, 0.25);
+    border-color: rgba(200, 255, 46, 0.5);
     transform: translateY(-2px);
+    box-shadow: 0 16px 48px rgba(200, 255, 46, 0.1);
 }
 .unlimited-block-tag {
     display: inline-block;
     font-family: var(--font-mono);
-    font-size: 11px; font-weight: 600;
+    font-size: 11px; font-weight: 700;
     letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--lime);
-    background: var(--lime-dim);
-    padding: 6px 14px;
+    color: var(--black);
+    background: var(--lime);
+    padding: 7px 14px;
     border-radius: 100px;
     margin-bottom: 28px;
 }
 .unlimited-block-tag--neg {
-    color: var(--white-muted);
-    background: rgba(244, 241, 236, 0.04);
+    color: var(--white-dim);
+    background: rgba(244, 241, 236, 0.08);
 }
 .unlimited-list {
     list-style: none;
@@ -1246,7 +1258,7 @@ body::before {
     padding-left: 26px;
     font-size: 15px;
     line-height: 1.6;
-    color: var(--white-dim);
+    color: var(--white);
 }
 .unlimited-list li::before {
     content: '';
@@ -1256,17 +1268,19 @@ body::before {
     background: var(--lime);
 }
 .unlimited-block--neg {
-    background: var(--surface-2);
-    border-color: var(--border);
+    background: var(--surface);
+    border: 1px solid var(--border-hover);
 }
+.unlimited-block--neg::before { display: none; }
 .unlimited-block--neg:hover {
-    border-color: var(--border-hover);
-    transform: none;
+    border-color: rgba(244, 241, 236, 0.18);
+    transform: translateY(-2px);
+    box-shadow: none;
 }
 .unlimited-block--neg p {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.75;
-    color: var(--white-muted);
+    color: var(--white-dim);
 }
 
 /* ——— WHY $750 ——— */

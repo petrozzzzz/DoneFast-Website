@@ -4,12 +4,12 @@ import PageClient from "./page-client";
 export const metadata: Metadata = {
   title: "DoneFast — The agency alternative for AI automation",
   description:
-    "Stop hiring agencies for $5,000 builds. AI workflows, internal tools, and custom automations for $750/month flat. 1-3 day delivery. Cancel anytime.",
+    "Stop hiring agencies for $5,000 builds. AI agents, workflows, and custom automations for $750/month flat. 3-5 day delivery. Cancel anytime.",
   alternates: { canonical: "https://donefast.com/" },
   openGraph: {
     title: "DoneFast — The agency alternative for AI automation",
     description:
-      "Stop hiring agencies for $5,000 builds. AI workflows, internal tools, and custom automations for $750/month flat. 1-3 day delivery. Cancel anytime.",
+      "Stop hiring agencies for $5,000 builds. AI agents, workflows, and custom automations for $750/month flat. 3-5 day delivery. Cancel anytime.",
     url: "https://donefast.com/",
     type: "website",
     images: ["https://donefast.com/og-image.jpg"],
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "DoneFast — The agency alternative for AI automation",
     description:
-      "AI workflows, internal tools, and custom automations for $750/month flat. Cancel anytime.",
+      "AI agents, workflows, and custom automations for $750/month flat. Cancel anytime.",
     images: ["https://donefast.com/og-image.jpg"],
   },
 };
@@ -77,7 +77,7 @@ const HOMEPAGE_HTML = `
                 <span class="split-line"><span class="split-line-inner">Start shipping <em>automations.</em></span></span>
             </h1>
             <p class="hero-sub">
-                AI workflows, internal tools, and custom automations &mdash; built and managed for one flat fee. No proposals. No scoping calls. No $5,000 invoices for a Zapier flow.
+                AI agents, workflows, and custom automations &mdash; built and managed for one flat fee. No proposals. No scoping calls. No $5,000 invoices for a Zapier flow.
             </p>
             <div class="hero-actions">
                 <button data-cal-link="donefast/15min" data-cal-config='{"layout":"month_view","theme":"dark"}' class="btn-cta" style="border:none;cursor:pointer;">
@@ -91,7 +91,7 @@ const HOMEPAGE_HTML = `
                 <span class="hero-trust-sep">&middot;</span>
                 <span>Unlimited requests</span>
                 <span class="hero-trust-sep">&middot;</span>
-                <span>1-3 day delivery</span>
+                <span>3-5 day delivery</span>
                 <span class="hero-trust-sep">&middot;</span>
                 <span>Pause anytime</span>
             </div>
@@ -129,7 +129,7 @@ const HOMEPAGE_HTML = `
             </div>
             <div class="fatigue-punchline">
                 <span class="fatigue-punchline-lead">DoneFast is the alternative.</span>
-                <span class="fatigue-punchline-rest">$750/month, flat. Send us what you need built. We build it. When that's done, send the next one. Cancel when you're done.</span>
+                <span class="fatigue-punchline-rest">$750/month, flat. No hidden fees. Send us what you need built. We build it. When that's done, send the next one.</span>
             </div>
         </div>
     </div>
@@ -159,8 +159,8 @@ const HOMEPAGE_HTML = `
             <div class="hstep rv rv-d3">
                 <div class="hstep-ring"><span>3</span></div>
                 <h3>Ship it</h3>
-                <p>1-3 days for most requests. Bigger builds get broken into pieces so you see momentum.</p>
-                <span class="hstep-tag">1-3 days</span>
+                <p>3-5 days for most requests. Bigger builds get broken into pieces so you see momentum.</p>
+                <span class="hstep-tag">3-5 days</span>
             </div>
         </div>
     </div>
@@ -195,14 +195,14 @@ const HOMEPAGE_HTML = `
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                 </div>
                 <h3>Lightning delivery</h3>
-                <p>Most requests done in 1-3 days.</p>
+                <p>Most requests done in 3-5 days.</p>
             </div>
             <div class="ben rv rv-d4">
                 <div class="ben-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
-                <h3>AI + senior review</h3>
-                <p>AI builds it. A senior engineer tests it before you see it.</p>
+                <h3>Senior engineer review</h3>
+                <p>Every workflow is tested and reviewed by a senior engineer before you see it.</p>
             </div>
             <div class="ben rv rv-d5">
                 <div class="ben-icon">
@@ -232,7 +232,7 @@ const HOMEPAGE_HTML = `
 
         <div class="unlimited-body rv rv-d1">
             <p>Other 'unlimited' services bury the catch in the fine print. We won't.</p>
-            <p>Here's the deal: you can have as many requests in your queue as you want. Add 5, add 50, add them faster than we can ship &mdash; your queue is unlimited. We work on one request at a time, and most ship in 1-3 days. So in a typical month, expect 8-15 things shipped, depending on complexity.</p>
+            <p>Here's the deal: you can have as many requests in your queue as you want. Add 5, add 50, add them faster than we can ship &mdash; your queue is unlimited. We work on one request at a time, and most ship in 3-5 days. So in a typical month, expect 6-10 things shipped, depending on complexity.</p>
         </div>
 
         <div class="unlimited-grid">
@@ -287,7 +287,7 @@ const HOMEPAGE_HTML = `
                 <p class="price-tagline">Flat. Cancel anytime.</p>
                 <ul class="price-features">
                     <li>Unlimited requests in your queue</li>
-                    <li>1-3 day delivery on most requests</li>
+                    <li>3-5 day delivery on most requests</li>
                     <li>One active build at a time</li>
                     <li>Senior engineer review on everything</li>
                     <li>Weekly 30-min strategy call</li>
@@ -352,7 +352,7 @@ const HOMEPAGE_HTML = `
                         How fast do you actually ship?
                         <span class="arrow">+</span>
                     </button>
-                    <div class="faq-a"><div class="faq-a-in">1-3 days for most requests. A simple workflow ships same-day. A complex multi-system integration might take a week, broken into smaller deliveries.</div></div>
+                    <div class="faq-a"><div class="faq-a-in">3-5 days for most requests. A simple workflow ships same-day. A complex multi-system integration might take a week, broken into smaller deliveries.</div></div>
                 </div>
                 <div class="faq-item rv rv-d6">
                     <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
