@@ -48,6 +48,15 @@ export default function RootLayout({
       lang="en"
       className={`no-js ${instrumentSerif.variable} ${outfit.variable} ${jetbrainsMono.variable}`}
     >
+      <head>
+        <script
+          id="vtag-ai-js"
+          async
+          src="https://r2.leadsy.ai/tag.js"
+          data-pid="EDQPrynPAmUJtsnB"
+          data-version="062024"
+        ></script>
+      </head>
       <body>{children}</body>
     </html>
   );
